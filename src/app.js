@@ -9,6 +9,7 @@ import couponRouter from './routes/coupon.route';
 import courtRouter from './routes/court.route';
 import paymentRouter from './routes/payment.route';
 import userRouter from './routes/user.route';
+import globalErrorHandler from './middlewares/globalErrorHandler';
 
 const app = express();
 
@@ -39,6 +40,6 @@ app.use('/api/coupons', couponRouter);
 app.use('/api/announcements', announcementRouter);
 
 // Error handler
-// app.use(globalErrorHandler);
+app.use(globalErrorHandler);
 
 export default app;
