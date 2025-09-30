@@ -2,7 +2,6 @@ import cookieParser from 'cookie-parser';
 import cors from 'cors';
 import express from 'express';
 import morgan from 'morgan';
-import globalErrorHandler from './middlewares/globalErrorHandler.js';
 import announcementRouter from './routes/announcement.route';
 import authRouter from './routes/auth.route';
 import bookingRouter from './routes/booking.route';
@@ -40,6 +39,6 @@ app.use('/api/coupons', couponRouter);
 app.use('/api/announcements', announcementRouter);
 
 // Error handler
-app.use(globalErrorHandler);
+// app.use(globalErrorHandler);
 
 export default app;
