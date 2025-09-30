@@ -4,7 +4,7 @@
   "type": "module",
   "scripts": {
     "dev": "bun --watch src/index.js",
-    "start": "bun run index.js"
+    "start": "bun run src/index.js"
   },
   "dependencies": {
     "bcryptjs": "^3.0.2",
