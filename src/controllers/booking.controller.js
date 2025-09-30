@@ -66,10 +66,10 @@ export const getAllBookings = async (req, res, next) => {
     // Populate user and court data
     bookingsQuery = bookingsQuery
       .populate('userId', 'name email isMember')
-      .populate('courtId', 'title type image');
+      .populate('courtId', 'title type image')
+      .sort({ createdAt: -1 });
 
     let bookings = await bookingsQuery;
-
     // Apply search filter after population (client-side filtering for small datasets)
     if (search) {
       const searchTerm = search.toLowerCase().trim();
@@ -96,6 +96,7 @@ export const getAllBookings = async (req, res, next) => {
         image: booking.courtId.image,
       },
     }));
+
 
     res.status(200).json({
       success: true,
