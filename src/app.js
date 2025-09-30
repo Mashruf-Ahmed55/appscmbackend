@@ -2,6 +2,7 @@ import cookieParser from 'cookie-parser';
 import cors from 'cors';
 import express from 'express';
 import morgan from 'morgan';
+import globalErrorHandler from './middlewares/globalErrorHandler';
 import announcementRouter from './routes/announcement.route';
 import authRouter from './routes/auth.route';
 import bookingRouter from './routes/booking.route';
@@ -9,13 +10,15 @@ import couponRouter from './routes/coupon.route';
 import courtRouter from './routes/court.route';
 import paymentRouter from './routes/payment.route';
 import userRouter from './routes/user.route';
-import globalErrorHandler from './middlewares/globalErrorHandler';
 
 const app = express();
 
 app.use(
   cors({
-    origin: ['http://localhost:5173'],
+    origin: [
+      'http://localhost:5173,',
+      'https://sportsclubmanagementsystem.netlify.app',
+    ],
     credentials: true,
     allowedHeaders: ['Content-Type', 'Authorization'],
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'OPTIONS'],
